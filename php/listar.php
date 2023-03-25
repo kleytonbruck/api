@@ -17,7 +17,6 @@ $cursos = [];
 $indice = 0;
 
 //Laço
-
 while($linha = mysqli_fetch_assoc($executar)){
     $cursos[$indice]['idCurso'] = $linha['idCurso'];
     $cursos[$indice]['nomeCurso'] = $linha['nomeCurso'];

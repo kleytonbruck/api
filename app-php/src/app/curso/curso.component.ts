@@ -11,9 +11,6 @@ import { CursoService } from './curso.service';
 })
 export class CursoComponent implements OnInit {
 
-  //URL Base
-  //url = "http://localhost/api/php/";
-
   //Vetor de cursos
   public vetor: Curso[] = [];
 
@@ -43,15 +40,7 @@ export class CursoComponent implements OnInit {
   //Cadastrar
   cadastrar() {
     this.curso_servico.cadastrarCurso(this.curso).subscribe(
-      (res: Curso[]) => {
-
-        //adicionando dados ao vetor
-        //this.vetor = res;
-
-        //limpar atributos
-        //this.curso.nomeCurso = null
-        //this.curso.valorCurso = null
-
+      (res: Curso[]) => {        
         //atualizar listagem
         this.selecao();
         this.curso = new Curso();
@@ -64,29 +53,12 @@ export class CursoComponent implements OnInit {
     this.curso_servico.atualizarCurso(this.curso).subscribe(
       (res) => {
         //ataulizar vetor
-        this.vetor = res;
-
-        //limpar valores do objeto
-        //this.curso.nomeCurso = null;
-        //this.curso.valorCurso = null;
+        this.vetor = res;        
         this.selecao();
       }
     )
   }
-  /*
-    //Remover
-    remover() {
-      this.curso_servico.removerCurso(this.curso).subscribe(
-        (res: Curso[]) => {
-          this.vetor = res;
-  
-          //this.curso.nomeCurso = null;
-          //this.curso.valorCurso = null;
-          this.selecao();
-        }
-      )
-    }
-  */
+  //Remover
   remover(curso: Curso) {
     this.curso_servico.removerCurso(curso).subscribe(
       (response: Curso[]) => {

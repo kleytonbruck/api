@@ -15,7 +15,6 @@ $valorCurso = $extrair->cursos->valorCurso;
 
 //SQL
 $sql = "INSERT INTO cursos (nomeCurso, valorCurso) VALUES (?, ?)";
-//mysqli_query($conexao, $sql);
 
 $stmt = mysqli_prepare($conexao, $sql);
 $stmt->bind_param('sd', $nomeCurso, $valorCurso);
